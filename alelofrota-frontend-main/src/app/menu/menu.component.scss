@@ -1,0 +1,39 @@
+.logo{
+  width: 100%;
+  margin-top: 40px;
+}
+
+.logo .img-thumbnail{
+  border: none;
+}
+
+.tituloMenu{
+  margin-top: 30px;
+}
+
+ul.menu{
+  padding-inline-start: 0 !important;
+  list-style: none;
+  margin-top: 60px;
+}
+
+ul.menu li{
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+ul.menu li a{
+  text-decoration: none;
+}
+
+ul.menu li i{
+  margin-right: 30px;
+}
+
+
+@media (max-width: 600px){
+  .tituloMenu{
+    text-align: center;
+  }
+}

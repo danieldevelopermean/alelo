@@ -1,0 +1,11 @@
+/home/cd/Downloads/0/BrunoRFernandes/alelofrota-backend-main/src/main/java/br/com/alelofrota/service/CarroService.java
+/home/cd/Downloads/0/BrunoRFernandes/alelofrota-backend-main/src/main/java/br/com/alelofrota/domain/Carro.java
+/home/cd/Downloads/0/BrunoRFernandes/alelofrota-backend-main/src/main/java/br/com/alelofrota/enuns/StatusEnum.java
+/home/cd/Downloads/0/BrunoRFernandes/alelofrota-backend-main/src/main/java/br/com/alelofrota/domain/dto/CarroDTO.java
+/home/cd/Downloads/0/BrunoRFernandes/alelofrota-backend-main/src/main/java/br/com/alelofrota/config/SwaggerConfig.java
+/home/cd/Downloads/0/BrunoRFernandes/alelofrota-backend-main/src/main/java/br/com/alelofrota/controller/exception/StantardError.java
+/home/cd/Downloads/0/BrunoRFernandes/alelofrota-backend-main/src/main/java/br/com/alelofrota/AleloFrotaApplication.java
+/home/cd/Downloads/0/BrunoRFernandes/alelofrota-backend-main/src/main/java/br/com/alelofrota/controller/exception/ResourceExceptionHandler.java
+/home/cd/Downloads/0/BrunoRFernandes/alelofrota-backend-main/src/main/java/br/com/alelofrota/domain/dto/ErrorMessage.java
+/home/cd/Downloads/0/BrunoRFernandes/alelofrota-backend-main/src/main/java/br/com/alelofrota/repositories/CarroRepository.java
+/home/cd/Downloads/0/BrunoRFernandes/alelofrota-backend-main/src/main/java/br/com/alelofrota/controller/CarroController.java

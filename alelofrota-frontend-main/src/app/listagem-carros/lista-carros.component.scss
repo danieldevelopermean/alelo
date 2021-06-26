@@ -1,0 +1,75 @@
+.conteudo-interno{
+  margin-top: 10px;
+}
+
+.conteudo-interno h2{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.conteudo-interno p{
+  padding-top: 30px;
+  text-align: justify;
+}
+
+.linhaform{
+  margin-top: 85px;
+}
+
+.formBusca{
+  width: 100%;
+}
+
+.cpPesquisa{
+  width: 90% !important;
+  outline: none;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #707070;
+}
+
+.btnPesquisa{
+  border: none;
+  background: none;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.btnNovoVeiculo{
+  width: 100%;
+  height: 30px;
+  color: #FFF;
+  border: none;
+  background: #bc2f6c;
+  border-radius: 5px;
+
+}
+
+.linhaTabela{
+  margin-top: 50px;
+}
+
+.tabelaCarros th{
+  color: #FFF;
+  font-weight: bold;
+  background: #43a4e6;
+}
+
+.ativo{
+  color: #0e7f61;
+}
+
+.inativo{
+  color: #bc2f6c;
+}
+
+.btnEditar, .btnExcluir{
+  color: #000;
+  font-weight: bold;
+  border: none;
+  background: none;
+}
+
+.btnExcluir{
+  color: #bc2f6c;
+}

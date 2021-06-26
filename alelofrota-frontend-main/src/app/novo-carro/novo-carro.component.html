@@ -1,0 +1,71 @@
+<!-- Linha Conteudo Interno -->
+<div class="row">
+  <div class="col-md-12">
+    <div class="conteudo-interno">
+      <h2>{{title}}</h2>
+
+      <!-- Linha Formulario -->
+      <div class="row">
+        <div class="col-md-6">
+          <p-messages></p-messages>
+
+          <form (ngSubmit)="novoCarro()" class="formCadastro" #formCadastro="ngForm">
+            <label>Placa</label><br>
+
+            <div *ngIf="disable==true">
+              <input type="text" name="placa" id="placa" placeholder="Placa" class="cpForm" [(ngModel)]="placa" required disabled />
+            </div>
+            <div *ngIf="disable==false" class="form-group" [ngClass]="{'has-error' : !campoPlaca.valid && (campoPlaca.dirty || campoPlaca.touched)}">
+              <input type="text" name="placa" id="placa" placeholder="Placa" class="cpForm" [(ngModel)]="placa" required #campoPlaca="ngModel" pattern="[a-zA-Z0-9]+" maxlength="7" />
+              <span class="help-block" *ngIf="campoPlaca.errors && (campoPlaca.dirty || campoPlaca.touched)">
+                Campo Placa é obrigatório (digite apenas números e letras)
+              </span>
+            </div>
+
+            <div class="form-group" [ngClass]="{'has-error' : !campoModelo.valid && (campoModelo.dirty || campoModelo.touched)}">
+              <label>Modelo</label><br>
+              <input type="text" name="modelo" id="modelo" placeholder="Modelo" class="cpForm" [(ngModel)]="modelo" required #campoModelo="ngModel" />
+              <span class="help-block" *ngIf="campoModelo.errors && (campoModelo.dirty || campoModelo.touched)">
+                Campo Modelo é obrigatório
+              </span>
+            </div>
+
+            <div class="form-group" [ngClass]="{'has-error' : !campoMarca.valid && (campoMarca.dirty || campoMarca.touched)}">
+              <label>Marca</label><br>
+              <input type="text" name="marca" id="marca" placeholder="Marca" class="cpForm" [(ngModel)]="marca" required #campoMarca="ngModel" />
+              <span class="help-block" *ngIf="campoMarca.errors && (campoMarca.dirty || campoMarca.touched)">
+                Campo Marca é obrigatório
+              </span>
+            </div>
+
+            <div class="form-group" [ngClass]="{'has-error' : !campoCor.valid && (campoCor.dirty || campoCor.touched)}">
+            <label>Cor</label><br>
+              <input type="text" name="cor" id="cor" placeholder="Cor" class="cpForm" [(ngModel)]="cor" required #campoCor="ngModel" />
+              <span class="help-block" *ngIf="campoCor.errors && (campoCor.dirty || campoCor.touched)">
+              Campo Cor é obrigatório
+              </span>
+            </div>
+
+            <label>Status</label><br>
+            <input type="radio" name="status" id="status" value="ativo" [(ngModel)]="status" checked> <label>Ativo</label>
+            <input type="radio" name="status" id="status" value="inativo" [(ngModel)]="status" class="btnInativo"> <label>Inativo</label>
+
+            <div class="gropoBotoes">
+              <button (click)="limparCampos()"class="limpar" >Limpar</button>
+              <button type="submit" class="btnSalvar" [disabled]="!formCadastro.valid">Salvar</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+      <!-- /Linha Formulario -->
+
+
+
+    </div>
+  </div>
+</div>
+<!-- /Linha Conteudo Interno -->
+
+
+
