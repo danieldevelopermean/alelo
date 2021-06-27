@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Carro } from './../model/carro.model';
-import { HELP_DESK_API } from "./helpdesk.api";
+import { urlAPi } from "./urlApi";
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,6 @@ import { HELP_DESK_API } from "./helpdesk.api";
 export class CarroService {
 
   private listaCarros: any[];
-  private url: string = "http://localhost:8080/alelofrota/vehicle";
 
   constructor(private httpClient: HttpClient) {
     this.listaCarros = [];
@@ -20,28 +19,28 @@ export class CarroService {
   carros(): Observable<Carro[]>{
     this.listaCarros = [];
 
-    return this.httpClient.get<Carro[]>(HELP_DESK_API);
+    return this.httpClient.get<Carro[]>(urlAPi);
   }
 
   carroFindById(id:string): Observable<any>{
-    return this.httpClient.get<Carro[]>(`${HELP_DESK_API}/${id}`);
+    return this.httpClient.get<Carro[]>(`${urlAPi}/${id}`);
   }
 
   adicionar(carro: Carro): Observable<Carro>{
-    return this.httpClient.post<Carro>(HELP_DESK_API, carro);
+    return this.httpClient.post<Carro>(urlAPi, carro);
   }
 
   buscarPorPlaca(placa: string): Observable<Carro[]>{
     this.listaCarros = [];
 
-    return this.httpClient.get<Carro[]>(`${HELP_DESK_API}/search/${placa}`);
+    return this.httpClient.get<Carro[]>(`${urlAPi}/search/${placa}`);
   }
 
   atualizar(carro: Carro, id:string): Observable<Carro>{
-    return this.httpClient.put<Carro>(`${HELP_DESK_API}/${id}`, carro);
+    return this.httpClient.put<Carro>(`${urlAPi}/${id}`, carro);
   }
 
   carroDelete(id:string): Observable<Carro[]>{
-    return this.httpClient.delete<Carro[]>(`${HELP_DESK_API}/${id}`);
+    return this.httpClient.delete<Carro[]>(`${urlAPi}/${id}`);
   }
 }

@@ -17,7 +17,7 @@ import javax.validation.Valid;
 
 
 @RestController
-@RequestMapping("/vehicle")
+@RequestMapping("/placas")
 @CrossOrigin(origins = "*")
 public class CarroController {
 	

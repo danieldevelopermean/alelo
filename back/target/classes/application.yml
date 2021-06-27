@@ -1,7 +1,7 @@
 server:
-  port: 8080
+  port: 8082
   servlet:
-    context-path: /alelofrota
+    context-path: /alelo
 spring:
   datasource:
     driverClassName: org.h2.Driver
