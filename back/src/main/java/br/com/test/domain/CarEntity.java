@@ -5,10 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import br.com.test.enuns.StatusEnum;
+import br.com.test.enums.Enum;
 
 @Entity
-public class Carro {
+public class CarEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,11 +18,11 @@ public class Carro {
 	private String modelo;
 	private String marca;
 	private String cor;
-	private StatusEnum status;
+	private Enum status;
 	
-	public Carro() {}
+	public CarEntity() {}
 	
-	public Carro(String placa, String modelo, String marca, String cor, StatusEnum status) {
+	public CarEntity(String placa, String modelo, String marca, String cor, Enum status) {
 		this.placa = placa;
 		this.modelo = modelo;
 		this.marca = marca;
@@ -70,11 +70,11 @@ public class Carro {
 		this.cor = cor;
 	}
 
-	public StatusEnum getStatus() {
+	public Enum getStatus() {
 		return status;
 	}
 
-	public void setStatus(StatusEnum status) {
+	public void setStatus(Enum status) {
 		this.status = status;
 	}
 
@@ -94,7 +94,7 @@ public class Carro {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Carro other = (Carro) obj;
+		CarEntity other = (CarEntity) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

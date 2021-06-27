@@ -1,4 +1,4 @@
-package br.com.test.domain.dto;
+package br.com.test.domain;
 
 import javax.validation.constraints.NotEmpty;
 
@@ -6,16 +6,16 @@ public class Car {
 
 	private Long id;
 
-	@NotEmpty(message = "O Campo Placa é Obrigatório")
+	@NotEmpty(message = "Mandatory")
 	private String placa;
 
-	@NotEmpty(message = "O Campo Modelo é Obrigatório")
+	@NotEmpty(message = "Mandatory")
 	private String modelo;
 
-	@NotEmpty(message = "O Campo Marca é Obrigatório")
+	@NotEmpty(message = "Mandatory")
 	private String marca;
 
-	@NotEmpty(message = "O Campo Cor é Obrigatório")
+	@NotEmpty(message = "Mandatory")
 	private String cor;
 
 	private String status;

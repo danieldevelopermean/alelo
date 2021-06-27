@@ -1,4 +1,4 @@
-package br.com.test.controller.exception;
+package br.com.test.catchException;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

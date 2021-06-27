@@ -1,4 +1,4 @@
-package br.com.test.controller.exception;
+package br.com.test.catchException;
 
 public class Error {
 	private static final long serialVersionUID = 1L;

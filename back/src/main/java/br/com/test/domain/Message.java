@@ -1,4 +1,4 @@
-package br.com.test.domain.dto;
+package br.com.test.domain;
 
 public class Message {
 	

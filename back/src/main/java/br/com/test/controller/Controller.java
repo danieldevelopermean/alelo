@@ -19,9 +19,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.test.domain.dto.Car;
-import br.com.test.domain.dto.Message;
-import br.com.test.service.CarroService;
+import br.com.test.domain.Car;
+import br.com.test.domain.Message;
+import br.com.test.service.ServiceCar;
 
 @RestController
 @RequestMapping("/placas")
@@ -31,12 +31,12 @@ public class Controller {
 	private static final Logger LOGGER = Logger.getLogger(Controller.class.getName());
 
 	@Autowired
-	private CarroService service;
+	private ServiceCar service;
 
 	@PostMapping
 	public ResponseEntity<?> createCar(@Valid @RequestBody Car carro) {
 
-		boolean carroExiste = service.busaPorPlacaContains(carro.getPlaca());
+		boolean carroExiste = service.findByPlaca(carro.getPlaca());
 
 		if (carroExiste) {
 			return new ResponseEntity<>(new Message(404, "Carro no Sistema" + carro.getPlaca()), HttpStatus.CONFLICT);
@@ -57,7 +57,7 @@ public class Controller {
 
 	@GetMapping(value = "/search/{identificacao}")
 	public ResponseEntity<List<Car>> findSign(@PathVariable String placa) {
-		return ResponseEntity.ok(service.busaPorPlaca(placa));
+		return ResponseEntity.ok(service.findBy(placa));
 	}
 
 	@GetMapping
@@ -68,7 +68,7 @@ public class Controller {
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<?> findById(@PathVariable Long id) {
 		try {
-			Car resultCar = service.findByIdCar(id);
+			Car resultCar = service.findById(id);
 
 			if (resultCar != null) {
 				return new ResponseEntity<>(resultCar, HttpStatus.OK);
