@@ -3,6 +3,7 @@ import {ConfirmationService, ConfirmEventType, MessageService} from 'primeng/api
 import { CarroService } from "../service/carro.service";
 import { Router } from '@angular/router';
 
+
 import { Carro } from './../model/carro.model';
 
 @Component({
@@ -42,13 +43,13 @@ export class ListaCarrosComponent {
     console.log(id);
 
     this.confirmationService.confirm({
-      message: 'Deseja excluir o veículo placa ' + placa + '?' ,
-      header: 'Excluir',
+      message: 'Do you want to delete this vehicle?' ,
+      header: 'Delete',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.service
         .carroDelete(id).subscribe(resultado => this.ngOnInit());
-        this.messageService.add({severity:'info', summary:'Confirmado', detail:'Você confirmou'});
+        this.messageService.add({severity:'info', summary:'Confirm', detail:'Confirm'});
       },
       reject: (type) => {
           switch(type) {
@@ -63,12 +64,8 @@ export class ListaCarrosComponent {
     });
   }
 
-  buscarPorPlaca() {
-    console.log('teste');
-    this.service.buscarPorPlaca(this.placa).subscribe((resultado: Carro[]) => {
-      this.listaCarros = [];
-      this.listaCarros = resultado;
-    }, (error) => console.error(error));
+  buscarPorPlaca2() {
+    this.service.buscarPorPlaca(this.placa).subscribe((carro: Carro[]) => this.listaCarros = carro);
   }
 
   next() {

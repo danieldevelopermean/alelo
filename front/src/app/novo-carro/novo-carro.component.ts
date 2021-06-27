@@ -13,7 +13,7 @@ import {Message,MessageService} from 'primeng/api';
 })
 export class NovoCarroComponent {
 
-  title: string = "Cadastro de Veículos";
+  title: string = "Update Vehicle";
 
   placa: string;
   modelo: string;

@@ -5,10 +5,7 @@
       <h2>Gerenciamento de Veículos</h2>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum.
+        magna aliqua.
       </p>
     </div>
   </div>
@@ -21,8 +18,8 @@
   <!-- Coluna Pesquisa -->
   <div class="col-md-8">
     <div class="p-formgroup-inline">
-      <form method="POST" (ngSubmit)="buscarPorPlaca()" class="formBusca">
-        <input id="pesquisa" name="placa" class="cpPesquisa" type="text" pInputText placeholder="Procura por Placa" [(ngModel)]="placa">
+      <form method="POST" (ngSubmit)="buscarPorPlaca2()" class="formBusca">
+        <input id="pesquisa" name="placa" class="cpPesquisa" type="text" placeholder="plate search" [(ngModel)]="placa">
         <button type="submit" label="Submit" class="btnPesquisa"><i class="pi pi-search"></i></button>
       </form>
     </div>
@@ -31,7 +28,7 @@
 
   <!-- Coluna Novo Veiculo -->
   <div class="col-md-2 offset-md-2">
-    <button routerLink="/novo-carro" pButton type="button" class="btnNovoVeiculo">Novo Veículo +</button>
+    <button routerLink="/novo-carro" pButton type="button" class="btnNovoVeiculo">Add Vehicle +</button>
   </div>
   <!-- /Coluna Novo Veiculo -->
 
@@ -43,14 +40,14 @@
   <div class="col-md-12">
     <div class="card" *ngIf="listaCarros.length > 0; else listaVazia">
       <p-table class="tabelaCarros" [value]="listaCarros" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
-          currentPageReportTemplate="Mostrando {first} à {last} de {totalRecords} carros">
+          currentPageReportTemplate="First: {first}, Last: {last}, Total: {totalRecords} ">
           <ng-template pTemplate="header">
               <tr>
-                <th>Placa</th>
-                <th>Modelo</th>
-                <th>Marca</th>
+                <th>Plate</th>
+                <th>Model</th>
+                <th>Manufacter</th>
                 <th>Status</th>
-                <th>Ação</th>
+                <th>Action</th>
               </tr>
           </ng-template>
           <ng-template pTemplate="body" let-customer>
@@ -59,8 +56,8 @@
                   <td>{{customer.modelo}}</td>
                   <td>{{customer.marca}}</td>
                   <td>
-                    <div *ngIf="customer.status=='Ativo'"><i class="pi pi-circle-on ativo"></i> {{customer.status}}</div>
-                    <div *ngIf="customer.status=='Inativo'"><i class="pi pi-circle-on inativo"></i> {{customer.status}}</div>
+                    <div *ngIf="customer.status=='Active'"><i class="pi pi-circle-on ativo"></i> {{customer.status}}</div>
+                    <div *ngIf="customer.status=='Inactive'"><i class="pi pi-circle-on inativo"></i> {{customer.status}}</div>
                   </td>
                   <td>
                     <button (click)="carroFindById(customer?.id)" class="btnEditar"><i class="pi pi-pencil"></i></button>
@@ -78,7 +75,7 @@
   </div>
 
   <ng-template #listaVazia>
-      <p>Não existem veículos cadastrados.</p>
+      <p>Vehicle don't exist</p>
     </ng-template>
   </div>
 </div>

@@ -13,7 +13,7 @@ import br.com.test.controller.Controller;
 import br.com.test.domain.Car;
 import br.com.test.domain.CarEntity;
 import br.com.test.enums.Enum;
-import br.com.test.repositories.CarroRepository;
+import br.com.test.repositories.RepositoryCar;
 
 @Service
 public class ServiceCar {
@@ -21,7 +21,7 @@ public class ServiceCar {
 	private static final Logger LOGGER = Logger.getLogger(Controller.class.getName());
 
 	@Autowired
-	private CarroRepository carroRepository;
+	private RepositoryCar carroRepository;
 
 	public List<Car> list() {
 		List<CarEntity> cars = carroRepository.findAll();
@@ -29,7 +29,7 @@ public class ServiceCar {
 
 		for (CarEntity car : cars) {
 			Car cartDTO = new Car(car.getId(), car.getPlaca(), car.getModelo(), car.getMarca(), car.getCor(),
-					(car.getStatus() == Enum.ACTIVE) ? "Ativo" : "Inativo");
+					(car.getStatus() == Enum.ACTIVE) ? "Active" : "Inactive");
 			carsDto.add(cartDTO);
 		}
 
@@ -43,7 +43,7 @@ public class ServiceCar {
 
 		for (CarEntity car : cars) {
 			Car cartDTO = new Car(car.getId(), car.getPlaca(), car.getModelo(), car.getMarca(), car.getCor(),
-					(car.getStatus() == Enum.ACTIVE) ? "Ativo" : "Inativo");
+					(car.getStatus() == Enum.ACTIVE) ? "Active" : "Inactive");
 			carsDto.add(cartDTO);
 		}
 
@@ -63,7 +63,7 @@ public class ServiceCar {
 	public Car findById(Long id) {
 		Optional<CarEntity> obj = carroRepository.findById(id);
 		Car carDTO = new Car(obj.get().getId(), obj.get().getPlaca(), obj.get().getModelo(), obj.get().getMarca(),
-				obj.get().getCor(), (obj.get().getStatus() == Enum.ACTIVE) ? "Ativo" : "Inativo");
+				obj.get().getCor(), (obj.get().getStatus() == Enum.ACTIVE) ? "Active" : "Inactive");
 
 		return carDTO;
 	}
@@ -85,7 +85,7 @@ public class ServiceCar {
 				carUpdate.setId(id);
 				carUpdate = carroRepository.save(carUpdate);
 				return new Car(carUpdate.getId(), carUpdate.getPlaca(), carUpdate.getModelo(), carUpdate.getMarca(),
-						carUpdate.getCor(), (carUpdate.getStatus() == Enum.ACTIVE) ? "Ativo" : "Inativo");
+						carUpdate.getCor(), (carUpdate.getStatus() == Enum.ACTIVE) ? "Active" : "Inactive");
 			}
 
 		} catch (Exception e) {

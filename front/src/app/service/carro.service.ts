@@ -30,10 +30,10 @@ export class CarroService {
     return this.httpClient.post<Carro>(urlAPi, carro);
   }
 
-  buscarPorPlaca(identificacao: string): Observable<Carro[]>{
+  buscarPorPlaca(placa: string): Observable<Carro[]>{
     this.listaCarros = [];
 
-    return this.httpClient.get<Carro[]>(`${urlAPi}/search/${identificacao}`);
+    return this.httpClient.get<Carro[]>(`${urlAPi}/search/${placa}`);
   }
 
   atualizar(carro: Carro, id:string): Observable<Carro>{

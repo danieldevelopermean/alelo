@@ -55,9 +55,10 @@ public class Controller {
 		return new ResponseEntity<>(new Message(400, "Error: " + carro.getPlaca()), HttpStatus.BAD_REQUEST);
 	}
 
-	@GetMapping(value = "/search/{identificacao}")
+	@GetMapping(value = "/search/{placa}")
 	public ResponseEntity<List<Car>> findSign(@PathVariable String placa) {
-		return ResponseEntity.ok(service.findBy(placa));
+		List<Car> carros = service.findBy(placa);
+		return new ResponseEntity<>(carros, HttpStatus.OK);
 	}
 
 	@GetMapping

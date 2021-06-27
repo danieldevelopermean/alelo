@@ -8,7 +8,7 @@ import br.com.test.domain.CarEntity;
 import java.util.List;
 
 @Repository
-public interface CarroRepository extends JpaRepository<CarEntity, Long>{
+public interface RepositoryCar extends JpaRepository<CarEntity, Long>{
 
     List<CarEntity> findByPlaca(String placa);
 
