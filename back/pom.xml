@@ -9,11 +9,11 @@
 		<version>2.4.5</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>br.com.alelofrota</groupId>
-	<artifactId>alelofrota</artifactId>
+	<groupId>br.com.test</groupId>
+	<artifactId>test</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Alelo Frota</name>
-	<description>Alelo Frota</description>
+	<name>Test</name>
+	<description>Test</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
