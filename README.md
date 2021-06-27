@@ -30,7 +30,7 @@ Up the Applications
 
 docker-compose up
 
-folder: alelo
+folder: test1
 
 
 *********************************************************
