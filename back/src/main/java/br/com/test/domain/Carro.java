@@ -1,11 +1,11 @@
-package br.com.alelofrota.domain;
+package br.com.test.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import br.com.alelofrota.enuns.StatusEnum;
+import br.com.test.enuns.StatusEnum;
 
 @Entity
 public class Carro {

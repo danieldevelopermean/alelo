@@ -1,4 +1,4 @@
-package br.com.alelofrota.enuns;
+package br.com.test.enuns;
 
 public enum StatusEnum {
 	ATIVO,

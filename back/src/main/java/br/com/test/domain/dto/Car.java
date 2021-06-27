@@ -1,8 +1,8 @@
-package br.com.alelofrota.domain.dto;
+package br.com.test.domain.dto;
 
 import javax.validation.constraints.NotEmpty;
 
-public class CarroDTO {
+public class Car {
 
 	private Long id;
 
@@ -20,9 +20,9 @@ public class CarroDTO {
 
 	private String status;
 
-	public CarroDTO() {}
+	public Car() {}
 	
-	public CarroDTO(Long id, String placa, String modelo, String marca, String cor, String status) {
+	public Car(Long id, String placa, String modelo, String marca, String cor, String status) {
 		this.id = id;
 		this.placa = placa;
 		this.modelo = modelo;

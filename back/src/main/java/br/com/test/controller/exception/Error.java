@@ -1,13 +1,13 @@
-package br.com.alelofrota.controller.exception;
+package br.com.test.controller.exception;
 
-public class StantardError {
+public class Error {
 	private static final long serialVersionUID = 1L;
 	
 	private Integer status;
 	private String msg;
 	private long timeStamp;
 	
-	public StantardError(Integer status, String msg, long timeStamp) {
+	public Error(Integer status, String msg, long timeStamp) {
 		super();
 		this.status = status;
 		this.msg = msg;

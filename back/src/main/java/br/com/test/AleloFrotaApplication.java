@@ -1,4 +1,4 @@
-package br.com.alelofrota;
+package br.com.test;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

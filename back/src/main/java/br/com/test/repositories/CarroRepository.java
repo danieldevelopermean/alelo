@@ -1,9 +1,9 @@
-package br.com.alelofrota.repositories;
+package br.com.test.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.com.alelofrota.domain.Carro;
+import br.com.test.domain.Carro;
 
 import java.util.List;
 

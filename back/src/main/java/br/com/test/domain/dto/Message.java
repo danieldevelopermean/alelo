@@ -1,13 +1,13 @@
-package br.com.alelofrota.domain.dto;
+package br.com.test.domain.dto;
 
-public class ErrorMessage {
+public class Message {
 	
 	private Integer	code;
 	private String message;
 	
-	public ErrorMessage() {}
+	public Message() {}
 	
-	public ErrorMessage(Integer code, String message) {
+	public Message(Integer code, String message) {
 		super();
 		this.code = code;
 		this.message = message;

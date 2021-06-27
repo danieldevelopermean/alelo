@@ -1,4 +1,4 @@
-package br.com.alelofrota.service;
+package br.com.test.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,16 +9,16 @@ import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.alelofrota.controller.CarroController;
-import br.com.alelofrota.domain.Carro;
-import br.com.alelofrota.domain.dto.CarroDTO;
-import br.com.alelofrota.enuns.StatusEnum;
-import br.com.alelofrota.repositories.CarroRepository;
+import br.com.test.controller.Controller;
+import br.com.test.domain.Carro;
+import br.com.test.domain.dto.Car;
+import br.com.test.enuns.StatusEnum;
+import br.com.test.repositories.CarroRepository;
 
 @Service
 public class CarroService {
 	
-	private static final Logger LOGGER = Logger.getLogger(CarroController.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(Controller.class.getName());
 	
 	@Autowired
 	private CarroRepository carroRepository;
@@ -27,12 +27,12 @@ public class CarroService {
 	 * Método que lista todos os carros
 	 * @return retorna uma lista de carros do tipo CarroDTO
 	*/
-	public List<CarroDTO> list(){
+	public List<Car> list(){
 		List<Carro> cars = carroRepository.findAll();
-		List<CarroDTO> carsDto = new ArrayList<CarroDTO>();
+		List<Car> carsDto = new ArrayList<Car>();
 		
 		for (Carro car : cars) {
-			CarroDTO cartDTO = new CarroDTO(car.getId(), car.getPlaca(), car.getModelo(), car.getMarca(), car.getCor(), (car.getStatus() == StatusEnum.ATIVO) ? "Ativo" : "Inativo");
+			Car cartDTO = new Car(car.getId(), car.getPlaca(), car.getModelo(), car.getMarca(), car.getCor(), (car.getStatus() == StatusEnum.ATIVO) ? "Ativo" : "Inativo");
 			carsDto.add(cartDTO);
 		}
 		
@@ -44,13 +44,13 @@ public class CarroService {
 	 * @param placa
 	 * @return
 	 */
-	public List<CarroDTO> busaPorPlaca(String placa) {
+	public List<Car> busaPorPlaca(String placa) {
 
 		List<Carro> cars = carroRepository.findByPlaca(placa);
-		List<CarroDTO> carsDto = new ArrayList<CarroDTO>();
+		List<Car> carsDto = new ArrayList<Car>();
 
 		for (Carro car : cars) {
-			CarroDTO cartDTO = new CarroDTO(car.getId(), car.getPlaca(), car.getModelo(), car.getMarca(), car.getCor(), (car.getStatus() == StatusEnum.ATIVO) ? "Ativo" : "Inativo");
+			Car cartDTO = new Car(car.getId(), car.getPlaca(), car.getModelo(), car.getMarca(), car.getCor(), (car.getStatus() == StatusEnum.ATIVO) ? "Ativo" : "Inativo");
 			carsDto.add(cartDTO);
 		}
 
@@ -73,9 +73,9 @@ public class CarroService {
 	 * @param id
 	 * @return retorna um carroDTO 
 	*/
-	public CarroDTO findByIdCar(Long id) {
+	public Car findByIdCar(Long id) {
 		Optional<Carro> obj = carroRepository.findById(id);
-		CarroDTO carDTO = new CarroDTO(obj.get().getId(), obj.get().getPlaca(), obj.get().getModelo(), obj.get().getMarca(), obj.get().getCor(), (obj.get().getStatus() == StatusEnum.ATIVO) ? "Ativo" : "Inativo");
+		Car carDTO = new Car(obj.get().getId(), obj.get().getPlaca(), obj.get().getModelo(), obj.get().getMarca(), obj.get().getCor(), (obj.get().getStatus() == StatusEnum.ATIVO) ? "Ativo" : "Inativo");
 		
 		return carDTO;
 	}
@@ -86,9 +86,9 @@ public class CarroService {
 	 * @param car
 	 * @return retorna carroDTO do carro criado
 	*/
-	public CarroDTO create(CarroDTO car) {
+	public Car create(Car car) {
 		Carro carSave = carroRepository.save(createObjectCarro(car));
-		return new CarroDTO(carSave.getId(), carSave.getPlaca(), carSave.getModelo(), carSave.getMarca(), carSave.getCor(), (carSave.getStatus() == StatusEnum.ATIVO) ? "Ativo" : "Inativo");
+		return new Car(carSave.getId(), carSave.getPlaca(), carSave.getModelo(), carSave.getMarca(), carSave.getCor(), (carSave.getStatus() == StatusEnum.ATIVO) ? "Ativo" : "Inativo");
 	}
 	
 	
@@ -98,17 +98,17 @@ public class CarroService {
 	 * @param id
 	 * @return retorna carroDTO do carro atualizado
 	*/
-	public CarroDTO update(CarroDTO car, Long id) {
+	public Car update(Car car, Long id) {
 		
 		try {
-			CarroDTO findByIdCar = findByIdCar(id);
+			Car findByIdCar = findByIdCar(id);
 			
 			if(findByIdCar != null) {
 				Carro carUpdate = createObjectCarro(car);
 				
 				carUpdate.setId(id);
 				carUpdate = carroRepository.save(carUpdate);
-				return new CarroDTO(carUpdate.getId(), carUpdate.getPlaca(), carUpdate.getModelo(), carUpdate.getMarca(), carUpdate.getCor(), (carUpdate.getStatus() == StatusEnum.ATIVO) ? "Ativo" : "Inativo");
+				return new Car(carUpdate.getId(), carUpdate.getPlaca(), carUpdate.getModelo(), carUpdate.getMarca(), carUpdate.getCor(), (carUpdate.getStatus() == StatusEnum.ATIVO) ? "Ativo" : "Inativo");
 			}
 			
 		} catch (Exception e) {
@@ -127,7 +127,7 @@ public class CarroService {
 	public boolean delete(Long id) {
 		
 		try {
-			CarroDTO findByIdCar = findByIdCar(id);
+			Car findByIdCar = findByIdCar(id);
 			
 			if(findByIdCar != null) {
 				Carro productDelete = createObjectCarro(findByIdCar);
@@ -151,7 +151,7 @@ public class CarroService {
 	 * @param car
 	 * @return retorna um carro do tipo Carro
 	 */
-	private Carro createObjectCarro(CarroDTO car) {
+	private Carro createObjectCarro(Car car) {
 		return new Carro(car.getPlaca(), car.getModelo(), car.getMarca(), car.getCor(), ("ativo".equals(car.getStatus()) ? StatusEnum.ATIVO : StatusEnum.INATIVO));
 	}
 
